@@ -11,8 +11,7 @@ int solve_tsp_concorde (const std::vector<std::vector<int>>& distance, std::vect
   int rval = 0;
   const int ncount = distance.size();
   if (tour.size() != ncount) {
-    std::cerr << "tour.size() != ncount";
-    return 1;
+    tour.resize(ncount);
   }
   if (ncount < 5) {
     std::cerr << "Less than 5 nodes.";
@@ -71,8 +70,7 @@ int main(int argc, char** argv)
       {0, 0, 0, 4},
       {0, 0, 0, 0}
     };
-    std::vector<int> tour(distance.size());
-    std::iota(tour.begin(), tour.end(), 0);
+    std::vector<int> tour;
     int rval = solve_tsp_concorde(distance, tour);
     print_solution(tour, rval);
   }
@@ -86,8 +84,7 @@ int main(int argc, char** argv)
       {0, 0, 0, 0, 6},
       {0, 0, 0, 0, 0}
     };
-    std::vector<int> tour(distance.size());
-    std::iota(tour.begin(), tour.end(), 0);
+    std::vector<int> tour;
     int rval = solve_tsp_concorde(distance, tour);
     print_solution(tour, rval);
   }
@@ -109,8 +106,7 @@ int main(int argc, char** argv)
         {2145, 357, 1453, 1280, 586, 887, 1114, 2300, 653, 1272, 1017, 0, 504},
         {1972, 579, 1260, 987, 371, 999, 701, 2099, 600, 1162, 1200, 504, 0},
     };
-    std::vector<int> tour(distance.size());
-    std::iota(tour.begin(), tour.end(), 0);
+    std::vector<int> tour;
     int rval = solve_tsp_concorde(distance, tour);
     print_solution(tour, rval);
   }
